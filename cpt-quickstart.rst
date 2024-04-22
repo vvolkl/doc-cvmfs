@@ -51,7 +51,7 @@ To add the CVMFS repository (available for Debian and RHEL flavors) and install 
 
       .. code-block:: console
 
-         sudo dnf install http://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.2/cvmfs{,-libs}-2.11.2-1.fc38.x86_64.rpm \
+         sudo dnf install http://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.3/cvmfs{,-libs}-2.11.3-1.fc38.x86_64.rpm \
                           https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default-latest.noarch.rpm
 
 
@@ -73,7 +73,7 @@ Other Platforms
 
       .. code-block:: console
 
-          curl https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.2/cvmfs-service-2.11.2-1.x86_64.docker.tar.gz | docker load
+          curl https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.3/cvmfs-service-2.11.3-1.x86_64.docker.tar.gz | docker load
 
       Run the container as a system service with
 
@@ -85,7 +85,7 @@ Other Platforms
             --cap-add SYS_ADMIN \
             --device /dev/fuse \
             --volume /cvmfs:/cvmfs:shared \
-            cvmfs/service:2.11.2-1
+            cvmfs/service:2.11.3-1
 
       Use ``docker stop`` to unmount the ``/cvmfs`` tree.
 
@@ -108,7 +108,7 @@ Other Platforms
 
       .. code-block:: console
 
-          curl -o ~/Downloads/cvmfs-2.11.2.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.2/cvmfs-2.11.2.pkg
+          curl -o ~/Downloads/cvmfs-2.11.3.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.3/cvmfs-2.11.3.pkg
 
       Install the CernVM-FS package by opening the .pkg file and reboot.
       Future releases will provide a signed and notarized package.
