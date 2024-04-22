@@ -1,3 +1,20 @@
+Release Notes for CernVM-FS 2.11.3
+==================================
+
+CernVM-FS 2.11.3 is a patch release, containing one important fix for the changed GeoIP API by Maxmind.
+As with previous releases, upgrading clients should be seamless just by installing the new package from the repository.
+As usual, we recommend updating only a few worker nodes first and gradually ramping up once the new version proves to work correctly.
+Please take special care when upgrading a cvmfs client in NFS mode.
+
+For Stratum 1 servers, there should be no running snapshots during the upgrade.
+For publisher and gateway nodes, all transactions must be closed and no active leases must be present before upgrading.
+
+Bug fixes
+---------
+
+  * [server] Update method of downloading the MaxMind GeoIP (#3566)
+
+
 Release Notes for CernVM-FS 2.11.2
 ==================================
 
