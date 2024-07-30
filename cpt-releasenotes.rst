@@ -1,3 +1,83 @@
+
+Release Notes for CernVM-FS 2.11.4
+==================================
+
+CernVM-FS 2.11.4 is a patch release, containing one important fix for the streaming cache manager, and one improvement to
+the resilience of cvmfs when cache managers crashes due to lack of disk space.
+As with previous releases, upgrading clients should be seamless just by installing the new package from the repository.
+As usual, we recommend updating only a few worker nodes first and gradually ramping up once the new version proves to work correctly.
+Please take special care when upgrading a cvmfs client in NFS mode.
+
+For Stratum 1 servers, there should be no running snapshots during the upgrade.
+For publisher and gateway nodes, all transactions must be closed and no active leases must be present before upgrading.
+
+Bug fixes
+---------
+
+  * [client] Fix streaming cache mgr with secure repos (`#3631 <https://github.com/cvmfs/cvmfs/issues/3631>`_)
+  * [client] Fix handling of network errors in streaming cache mgr (`#3630 <https://github.com/cvmfs/cvmfs/issues/3630>`_)
+  * [client] Add timeout to ReadHalfPipe (`#3614 <https://github.com/cvmfs/cvmfs/issues/3614>`_)
+
+
+
+
+Release Notes for CernVM-FS 2.11.3
+==================================
+
+CernVM-FS 2.11.3 is a patch release, containing one important fix for the changed GeoIP API by Maxmind.
+As with previous releases, upgrading clients should be seamless just by installing the new package from the repository.
+As usual, we recommend updating only a few worker nodes first and gradually ramping up once the new version proves to work correctly.
+Please take special care when upgrading a cvmfs client in NFS mode.
+
+For Stratum 1 servers, there should be no running snapshots during the upgrade.
+For publisher and gateway nodes, all transactions must be closed and no active leases must be present before upgrading.
+
+Bug fixes
+---------
+
+  * [server] Update method of downloading the MaxMind GeoIP, including requiring new configuration parameter CVMFS_GEO_ACCOUNT_ID (`#3566 <https://github.com/cvmfs/cvmfs/issues/3566>`_)
+
+
+Release Notes for CernVM-FS 2.11.2
+==================================
+
+CernVM-FS 2.11.2 is a patch release, containing three important bug fixes.
+As with previous releases, upgrading clients should be seamless just by installing the new package from the repository.
+As usual, we recommend updating only a few worker nodes first and gradually ramping up once the new version proves to work correctly.
+Please take special care when upgrading a cvmfs client in NFS mode.
+
+For Stratum 1 servers, there should be no running snapshots during the upgrade.
+For publisher and gateway nodes, all transactions must be closed and no active leases must be present before upgrading.
+
+Bug fixes
+---------
+
+  * [client] Fix mount helper race condition causing spurious directories (`#3430 <https://github.com/cvmfs/cvmfs/issues/3430>`_)
+  * [client] Fix corrupted paths for concurrent external file requests (`#3418 <https://github.com/cvmfs/cvmfs/issues/3418>`_)
+  * [client] Suppress CVMFS_NFILES check for refcounted cache manager (`#3426 <https://github.com/cvmfs/cvmfs/issues/3426>`_)
+  * [deb] Let cvmfs-fuse3 depend on cvmfs of same version (`#3421 <https://github.com/cvmfs/cvmfs/issues/3421>`_)
+  * [rpm] Match subpackage release in addition to version (`#3422 <https://github.com/cvmfs/cvmfs/issues/3422>`_)
+
+
+Release Notes for CernVM-FS 2.11.1
+==================================
+
+CernVM-FS 2.11.1 is a patch release, containing several minor bug fixes and improvements.
+As with previous releases, upgrading clients should be seamless just by installing the new package from the repository.
+As usual, we recommend updating only a few worker nodes first and gradually ramping up once the new version proves to work correctly.
+Please take special care when upgrading a cvmfs client in NFS mode.
+
+For Stratum 1 servers, there should be no running snapshots during the upgrade.
+For publisher and gateway nodes, all transactions must be closed and no active leases must be present before upgrading.
+
+Bug fixes
+---------
+
+  * [client] Fix race condition on concurrent fuse3 mounts (`#3392 <https://github.com/cvmfs/cvmfs/issues/3392>`_)
+  * [server, rpm] Limit initscripts dependency to EL <= 7 (`#3408 <https://github.com/cvmfs/cvmfs/issues/3408>`_)
+  * [packaging] Remove hidden git build dependency (`#3376 <https://github.com/cvmfs/cvmfs/issues/3376>`_)
+
+
 Release Notes for CernVM-FS 2.11.0
 ==================================
 
@@ -11,7 +91,7 @@ Highlights are:
 
 * A bugfix for an issue that would slow down client startup when the limit for open file descriptors gets very high.
 
-* A new telemetry option to send client performance counters to influx
+* A new telemetry option to send client performance counters to influx; refer to the new `telemetry documentation <https://cvmfs.readthedocs.io/en/stable/cpt-telemetry.html>`_ for more details.
 
 
 As with previous releases, upgrading clients should be seamless just by
