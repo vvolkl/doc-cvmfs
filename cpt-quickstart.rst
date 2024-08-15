@@ -33,7 +33,7 @@ To add the CVMFS repository (available for Debian and RHEL flavors) and install 
 
       .. code-block:: console
 
-         sudo yum install https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
+         sudo yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
          sudo yum install -y cvmfs
 
    .. tab-item:: Debian/Ubuntu
@@ -43,17 +43,17 @@ To add the CVMFS repository (available for Debian and RHEL flavors) and install 
          wget https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb
          sudo dpkg -i cvmfs-release-latest_all.deb
          rm -f cvmfs-release-latest_all.deb
-         sudo apt-get update
-         sudo apt-get install cvmfs
+         sudo apt-get -y update
+         sudo apt-get -y install cvmfs
 
 
    .. tab-item:: Fedora
 
       .. code-block:: console
 
-         sudo dnf install https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-2.11.4-1.fc38.x86_64.rpm \
-                          https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default-latest.noarch.rpm \
-                          http://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-libs-2.11.4-1.fc38.x86_64.rpm
+         sudo dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-2.11.4-1.fc38.x86_64.rpm \
+                             https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default-latest.noarch.rpm \
+                             http://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-libs-2.11.4-1.fc38.x86_64.rpm
 
 
 Other Platforms
