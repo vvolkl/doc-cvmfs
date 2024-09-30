@@ -238,7 +238,9 @@ By default, the repository used to search for the layers is ``unpacked.cern.ch``
 The default values can be overwritten in the ``config.toml`` file using the ``--config`` option.
 A template ``config.toml`` file looks like this:
 
-::
+.. code-block:: toml
+
+    # /etc/containerd/config.toml
 
     version = 2
 
@@ -258,9 +260,57 @@ A template ``config.toml`` file looks like this:
             address = "/run/containerd-cvmfs-grpc/containerd-cvmfs-grpc.sock"
 
 
+.. code-block:: toml
+
+    # /etc/containerd-cvmfs-grpc/config.toml
+
+    
+    # Source of image layers
+    repository = "unpacked.cern.ch"
+    absolute-mountpoint = "/cvmfs/unpacked.cern.ch"
+
 Note that if only the repository is specified under the key value ``repository``, the mountpoint
 (under the key value ``absolute-mountpoint``) is by default constructed as ``/cvmfs/<repo_name>``.
 
+
+Running with k3s
+^^^^^^^^^^^^^^^^
+To configure k3s, edit ``/var/lib/rancher/k3s/agent/etc/containerd/config.toml.tmpl`` with the following content:
+
+.. code-block:: toml
+
+    version = 2
+    [plugins."io.containerd.grpc.v1.cri".containerd]
+      snapshotter = "cvmfs-snapshotter"
+      disable_snapshot_annotations = false
+    [proxy_plugins]
+      [proxy_plugins.cvmfs-snapshotter]
+        type = "snapshot"
+        address = "/run/containerd-cvmfs-grpc/containerd-cvmfs-grpc.sock"
+    [plugins."io.containerd.grpc.v1.cri".cni]
+      bin_dir = "/var/lib/rancher/k3s/data/current/bin"
+      conf_dir = "/var/lib/rancher/k3s/agent/etc/cni/net.d"
+
+After configuration, restart k3s with ``systemctl restart k3s``.
+
+To test, apply this sample pod configuration:
+
+.. code-block:: yaml
+
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: python-http-server
+    spec:
+      containers:
+      - name: python-server
+        image: python:3.9
+        imagePullPolicy: Always
+        command: ["python", "-m", "http.server", "8000"]
+        ports:
+        - containerPort: 8000
+
+Verify the setup using ``kubectl describe`` to check pod details. Note the startup time is about 2-3 seconds, compared to 13 seconds with the default snapshotter. For further verification, check the cvmfs-snapshotter logs using ``journalctl -u cvmfs-snapshotter``.
 
 ``podman`` integration (pre-production)
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
