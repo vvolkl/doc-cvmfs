@@ -93,9 +93,10 @@ Other Platforms
       .. note::
           If you run multiple nodes (a cluster), use ``-e CVMFS_HTTP_PROXY`` to set a proper site proxy as described further down.
 
+
    .. tab-item:: Mac OS X - homebrew / Fuse-t
 
-   The easiest way to install CVMFS on MacOS is with homewbrew:
+      The easiest way to install CVMFS on MacOS is with homewbrew:
 
       .. code-block:: console
 
@@ -127,9 +128,6 @@ Other Platforms
 
       Install the CernVM-FS package by opening the .pkg file and reboot.
 
-
-
-   
 
    .. tab-item:: Windows / WSL2
 
