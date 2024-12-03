@@ -51,9 +51,9 @@ To add the CVMFS repository (available for Debian and RHEL flavors) and install 
 
       .. code-block:: console
 
-         sudo dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-2.11.4-1.fc38.x86_64.rpm \
+         sudo dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.12.0/cvmfs-2.12.0-1.fc40.x86_64.rpm \
                              https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default-latest.noarch.rpm \
-                             http://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-libs-2.11.4-1.fc38.x86_64.rpm
+                             http://ecsft.cern.ch/dist/cvmfs/cvmfs-2.12.0/cvmfs-libs-2.12.0-1.fc40.x86_64.rpm
 
 
 Other Platforms
@@ -74,7 +74,7 @@ Other Platforms
 
       .. code-block:: console
 
-          curl https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-service-2.11.4-1.x86_64.docker.tar.gz | docker load
+          curl https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.12.0/cvmfs-service-2.12.0.x86_64.docker.tar.gz | docker load
 
       Run the container as a system service with
 
@@ -86,17 +86,28 @@ Other Platforms
             --cap-add SYS_ADMIN \
             --device /dev/fuse \
             --volume /cvmfs:/cvmfs:shared \
-            cvmfs/service:2.11.4-1
+            cvmfs/service:2.12.0-1
 
       Use ``docker stop`` to unmount the ``/cvmfs`` tree.
 
       .. note::
           If you run multiple nodes (a cluster), use ``-e CVMFS_HTTP_PROXY`` to set a proper site proxy as described further down.
 
+   .. tab-item:: Mac OS X - homebrew / Fuse-t
 
-   .. tab-item:: Mac OS X
+   The easiest way to install CVMFS on MacOS is with homewbrew:
 
-      On Mac OS X, CernVM-FS is based on `macFUSE <http://osxfuse.github.io>`_.
+      .. code-block:: console
+
+          brew tap macos-fuse-t/cask
+          brew tap cvmfs/homebrew-cvmfs
+          brew install cvmfs
+    
+
+   .. tab-item:: Mac OS X - Legacy macFUSE
+
+      This is the legacy way of using CVMFS - try Fuse-t for an easier installation!
+
       Note that as of macOS 11 Big Sur, `kernel extensions need to be enabled <https://support.apple.com/guide/mac-help/change-startup-disk-security-settings-a-mac-mchl768f7291/mac>`_
       to install macFUSE.
       Verify that fuse is available with
@@ -109,19 +120,16 @@ Other Platforms
 
       .. code-block:: console
 
-          curl -o ~/Downloads/cvmfs-2.11.4.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.4/cvmfs-2.11.4.pkg
+          # For Intel Processors:
+          curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.12.0/cvmfs-2.12.0.macfuse.intel.pkg 
+          # For Apple Silicon M1/M2/...
+          curl -O https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.12.0/cvmfs-2.12.0.macfuse.arm64.pkg 
 
       Install the CernVM-FS package by opening the .pkg file and reboot.
-      Future releases will provide a signed and notarized package.
 
-      A native package for Apple Silicon M1/M2 ... processors is available as well, use the following command instead: 
 
-      .. code-block:: console
 
-          curl -o ~/Downloads/cvmfs-2.11.2-applesilicon.pkg https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.11.2/cvmfs-2.11.2-applesilicon.pkg
-
-      Future releases will provide a package with universal binaries.
-
+   
 
    .. tab-item:: Windows / WSL2
 
