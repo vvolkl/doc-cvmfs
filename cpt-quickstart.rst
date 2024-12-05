@@ -96,7 +96,7 @@ Other Platforms
 
    .. tab-item:: Mac OS X - homebrew / Fuse-t
 
-      The easiest way to install CVMFS on MacOS is with homewbrew:
+      The easiest way to install CVMFS on MacOS is with homebrew:
 
       .. code-block:: console
 
