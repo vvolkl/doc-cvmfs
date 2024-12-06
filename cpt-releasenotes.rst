@@ -1,13 +1,23 @@
 
+Release Notes for CernVM-FS 2.12.2
+==================================
+
+CernVM-FS 2.12.2 is a small patch release that adds the "quick" ``cvmfs_config fsck -q`` option to check for and quarantine zeroed files in the cache.
+
+Release Notes for CernVM-FS 2.12.1
+==================================
+
+CernVM-FS 2.12.1 is a small patch release that fixes a packaging issue: it ensures that the service to reload cvmfs after package upgrades is correctly configured.
 
 Release Notes for CernVM-FS 2.12.0
 ==================================
 
-CernVM-FS 2.12.0 is a sizeable feature release with new features, bug fixes and performance improvements, 
+CernVM-FS 2.12.0 is a sizeable feature release with new features, bug fixes and performance improvements.
+NOTE: Testing has shown instances of cache corruption with this release, it will not be released in production. On your testing instances, upgrade to 2.12.2, run ``cvmfs_config fsck -q`` frequently and report any errors. 
 
 Highlights are:
 
-* Support for FUSE-T on MacOS, allowing for easy installation without security tweaks
+* Experimental Support for FUSE-T on MacOS, allowing for easy installation without security tweaks
 
 * Refcounted Cache Manager now the default
 
@@ -16,6 +26,8 @@ Highlights are:
 * Support for Metalink server discovery
 
 * Several fixes in the fuse internals, for example the page cache tracker
+
+* Reloading of CVMFS after package upgrades is now done via a daemon to avoid blocking the package transaction
 
 
 As with previous releases, upgrading clients should be seamless just by
