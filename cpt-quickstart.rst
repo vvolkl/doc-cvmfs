@@ -96,6 +96,7 @@ Other Platforms
 
    .. tab-item:: Mac OS X - homebrew / Fuse-t
 
+      NOTE: Fuse-t is still EXPERIMENTAL and there are known issues. Use MacFuse for a stable experience.
       The easiest way to install CVMFS on MacOS is with homebrew:
 
       .. code-block:: console
@@ -107,7 +108,6 @@ Other Platforms
 
    .. tab-item:: Mac OS X - Legacy macFUSE
 
-      This is the legacy way of using CVMFS - try Fuse-t for an easier installation!
 
       Note that as of macOS 11 Big Sur, `kernel extensions need to be enabled <https://support.apple.com/guide/mac-help/change-startup-disk-security-settings-a-mac-mchl768f7291/mac>`_
       to install macFUSE.
