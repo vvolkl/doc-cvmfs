@@ -17,7 +17,11 @@ NOTE: Testing has shown instances of cache corruption with this release, it will
 
 Highlights are:
 
+<<<<<<< HEAD
 * Experimental Support for FUSE-T on MacOS, allowing for easy installation without security tweaks
+=======
+* Experimental Support for FUSE-T on MacOS, allowing for easy installation without security tweaks. NOTE: There are some known issues with FUSE-T, do not expext this to be stable yet.
+>>>>>>> latest
 
 * Refcounted Cache Manager now the default
 
