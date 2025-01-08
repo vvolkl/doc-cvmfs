@@ -33,14 +33,14 @@ To add the CVMFS repository (available for Debian and RHEL flavors) and install 
 
       .. code-block:: console
 
-         sudo yum install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest.noarch.rpm
+         sudo yum install -y https://cvmrepo.s3.cern.ch/cvmrepo/yum/cvmfs-release-latest.noarch.rpm
          sudo yum install -y cvmfs
 
    .. tab-item:: Debian/Ubuntu
 
       .. code-block:: console
 
-         wget https://ecsft.cern.ch/dist/cvmfs/cvmfs-release/cvmfs-release-latest_all.deb
+         wget https://cvmrepo.s3.cern.ch/cvmrepo/apt/cvmfs-release-latest_all.deb
          sudo dpkg -i cvmfs-release-latest_all.deb
          rm -f cvmfs-release-latest_all.deb
          sudo apt-get -y update
@@ -51,9 +51,8 @@ To add the CVMFS repository (available for Debian and RHEL flavors) and install 
 
       .. code-block:: console
 
-         sudo dnf install -y https://ecsft.cern.ch/dist/cvmfs/cvmfs-2.12.0/cvmfs-2.12.0-1.fc40.x86_64.rpm \
-                             https://ecsft.cern.ch/dist/cvmfs/cvmfs-config/cvmfs-config-default-latest.noarch.rpm \
-                             http://ecsft.cern.ch/dist/cvmfs/cvmfs-2.12.0/cvmfs-libs-2.12.0-1.fc40.x86_64.rpm
+         sudo dnf install -y https://cvmrepo.s3.cern.ch/cvmrepo/yum/cvmfs-release-latest.noarch.rpm
+         sudo dnf install -y cvmfs
 
 
 Other Platforms
