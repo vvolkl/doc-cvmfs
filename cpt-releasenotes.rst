@@ -7,8 +7,8 @@ CernVM-FS 2.12.4 is a small patch release that adds a minor fix to ``cvmfs_confi
 Bug fixes
 ---------
 
-  * [client] Fix cvmfs_config fsck -q to work with rmd160, shake128 hashes (#3739)
-  * [server] Fix mkfs overwrite-manifest check when upstream is gateway (#3740)
+  * [client] Fix cvmfs_config fsck -q to work with rmd160, shake128 hashes (`#3739 <https://github.com/cvmfs/cvmfs/issues/3739>`_)
+  * [server] Fix mkfs overwrite-manifest check when upstream is gateway (`#37240 <https://github.com/cvmfs/cvmfs/issues/3740>`_)
 
 
 Release Notes for CernVM-FS 2.12.3
@@ -19,7 +19,7 @@ CernVM-FS 2.12.3 is a small patch release that fixes the issue with zeroed files
 Bug fixes
 ---------
 
-  * [client] Don't commit empty certificates to cache (#3728)
+  * [client] Don't commit empty certificates to cache (`#3728 <https://github.com/cvmfs/cvmfs/issues/3728>`_)
 
 Release Notes for CernVM-FS 2.12.2
 ==================================
@@ -29,7 +29,7 @@ CernVM-FS 2.12.2 is a small patch release that adds the "quick" ``cvmfs_config f
 Improvements and changes
 ------------------------
 
-* [client] Add cvmfs_config fsck -q(uick) to check for zeroed files in cache (#3726)
+* [client] Add cvmfs_config fsck -q(uick) to check for zeroed files in cache (`#3726 <https://github.com/cvmfs/cvmfs/issues/3726>`_)
 
 Release Notes for CernVM-FS 2.12.1
 ==================================
@@ -39,7 +39,7 @@ CernVM-FS 2.12.1 is a small patch release that fixes a packaging issue: it ensur
 Bug fixes
 ---------
 
-  * [rpm] bugfix for reload service after rpm upgrades (#3725)
+  * [rpm] bugfix for reload service after rpm upgrades (`#3725 <https://github.com/cvmfs/cvmfs/issues/3725>`_)
 
 Release Notes for CernVM-FS 2.12.0
 ==================================
