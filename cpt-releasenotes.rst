@@ -8,7 +8,7 @@ Bug fixes
 ---------
 
   * [client] Fix cvmfs_config fsck -q to work with rmd160, shake128 hashes (`#3739 <https://github.com/cvmfs/cvmfs/issues/3739>`_)
-  * [server] Fix mkfs overwrite-manifest check when upstream is gateway (`#37240 <https://github.com/cvmfs/cvmfs/issues/3740>`_)
+  * [server] Fix mkfs overwrite-manifest check when upstream is gateway (`#3740 <https://github.com/cvmfs/cvmfs/issues/3740>`_)
 
 
 Release Notes for CernVM-FS 2.12.3
